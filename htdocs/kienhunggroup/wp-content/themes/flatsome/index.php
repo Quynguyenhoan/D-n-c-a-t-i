@@ -15,3 +15,15 @@ get_header();
 </div>
 
 <?php get_footer(); ?>
+<?php
+// Nạp thư viện dotenv
+require 'vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+// Sử dụng khóa API từ biến môi trường
+$googleApiKey = $_ENV['GOOGLE_API_KEY'];
+
+// Sử dụng $googleApiKey trong mã của bạn
+echo "Khóa API của Google: " . $googleApiKey;
